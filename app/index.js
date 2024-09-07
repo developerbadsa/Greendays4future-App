@@ -14,21 +14,6 @@ export default function App() {
       return () => clearTimeout(timer);
    }, []);
 
-   // this is for animated spash screen
-   // return (
-   //   <AnimatedSplash
-   //     isLoaded={isLoaded}
-   //     logoImage={require('./../assets/images/splash.png')}
-   //     backgroundColor={"#00420c"}
-   //     logoHeight={200}
-   //     logoWidth={200}
-   //   >
-   //     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-   //       <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Welcome to Greendays4Future</Text>
-   //       <Link href={'/user/user4545'}> Goto User page</Link>
-   //     </View>
-   //   </AnimatedSplash>
-   // );
 
    return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
