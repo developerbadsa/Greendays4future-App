@@ -1,8 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, initializeAuth, getReactNativePersistence, createUserWithEmailAndPassword , signInWithEmailAndPassword} from 'firebase/auth';
+import { getAuth, initializeAuth, getReactNativePersistence, createUserWithEmailAndPassword , signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Your Firebase configuration object
+
 const firebaseConfig = {
   apiKey: 'AIzaSyA9AlJXmKxzRwzgMhDVkIx5Yn1B9Khp7wA',
   authDomain: 'greenday4future.firebaseapp.com',
@@ -20,4 +20,4 @@ const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(AsyncStorage)
 });
 
-export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword };
+export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
