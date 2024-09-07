@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "966455583800",
+    "project_id": "greenday4future",
+    "storage_bucket": "greenday4future.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966455583800:android:3a4794b412d4bdb52af2cd",
+        "android_client_info": {
+          "package_name": "com.kikompass.Greendays4Future"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbUQD6zWopPeGp6ecIDwPRkwHFYKZaWN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
