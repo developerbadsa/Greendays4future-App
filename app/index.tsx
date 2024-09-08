@@ -13,35 +13,46 @@ import {useAuth} from '../context/AuthContext';
 
 export default function Index() {
    const {user, Register, loading, login, logout} = useAuth();
-   const data = useAuth();
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [isLoading, setIsLoading] = useState(false);
 
-   console.log('ojects');
-   console.log(logout);
-
-   const handleLogin = async () => {
-      setIsLoading(true);
-      try {
-         await login(email, password);
-         Alert.alert('Success', 'Logged in successfully!');
-      } catch (error) {
-         Alert.alert('Login failed', error.message);
-      } finally {
-         setIsLoading(false);
+   const handleLogin = () => {
+      if (!email || !password) {
+         Alert.alert('Error', 'Both email and password are required.');
+         return;
       }
+      setIsLoading(true);
+      login(email, password)
+         .then((data) => {
+            Alert.alert('Success', 'Logged in successfully!');
+            console.log('data '+data)
+         })
+         .catch(error => {
+            Alert.alert('Login failed', error.message);
+            console.log(error)
+         })
+         .finally(() => {
+            setIsLoading(false);
+         });
    };
-   const handleRegistration = async () => {
-      setIsLoading(true);
-      try {
-         await Register(email, password);
-         Alert.alert('Success', 'Logged in successfully!');
-      } catch (error) {
-         Alert.alert('Login failed', error.message);
-      } finally {
-         setIsLoading(false);
+
+   const handleRegistration = () => {
+      if (!email || !password) {
+         Alert.alert('Error', 'Both email and password are required.');
+         return;
       }
+      setIsLoading(true);
+      Register(email, password)
+         .then(() => {
+            Alert.alert('Success', 'Registered successfully!');
+         })
+         .catch(error => {
+            Alert.alert('Registration failed', error.message);
+         })
+         .finally(() => {
+            setIsLoading(false);
+         });
    };
 
    if (loading) {
@@ -53,7 +64,7 @@ export default function Index() {
       return (
          <View style={styles.container}>
             <Text>Welcome, {user.email}</Text>
-            <Button title='Logout' onPress={() => logout()} />
+            <Button title='Logout' onPress={logout} />
          </View>
       );
    }
