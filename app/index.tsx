@@ -8,8 +8,14 @@ import {
    Button,
    ActivityIndicator,
    Alert,
+   ScrollView,
 } from 'react-native';
 import {useAuth} from '../context/AuthContext';
+import HomeScreen from './screens/SignOut';
+import StartScreen from './login/Login';
+import LoginScreen from './login/Login';
+import RegisterScreen from './resister/Register';
+import SignOut from './components/Sections/SignOut';
 
 export default function Index() {
    const {user, Register, loading, login, logout} = useAuth();
@@ -24,13 +30,13 @@ export default function Index() {
       }
       setIsLoading(true);
       login(email, password)
-         .then((data) => {
+         .then(data => {
             Alert.alert('Success', 'Logged in successfully!');
-            console.log('data '+data)
+            console.log('data ' + data);
          })
          .catch(error => {
             Alert.alert('Login failed', error.message);
-            console.log(error)
+            console.log(error);
          })
          .finally(() => {
             setIsLoading(false);
@@ -64,6 +70,21 @@ export default function Index() {
       return (
          <View style={styles.container}>
             <Text>Welcome, {user.email}</Text>
+            <ScrollView>
+               {/* <LoginScreen></LoginScreen>
+               <RegisterScreen></RegisterScreen> */}
+               <SignOut></SignOut>
+               {/* <HomeScreen></HomeScreen> */}
+            </ScrollView>
+
+            {/* <HomeScreen></HomeScreen>
+//          <StartScreen></StartScreen> */}
+            {/* <LoginScreen></LoginScreen>
+//          <HomeScreen></HomeScreen>
+//          <RegisterScreen></RegisterScreen>
+//          <StartScreen></StartScreen>
+//          <ResetPasswordScreen></ResetPasswordScreen> */}
+            {/* //          <WelcomeScreen></WelcomeScreen> */}
             <Button title='Logout' onPress={logout} />
          </View>
       );
